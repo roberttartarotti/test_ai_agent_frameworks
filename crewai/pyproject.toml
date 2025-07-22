@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "test_crewai"
+version = "0.1.0"
+description = "Test library for CrewAI framework"
+authors = [{name = "Robert Tartarotti", email = "robert.tartarotti@gmail.com"}]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "crewai",
+    "common",
+]
+
+[project.scripts]
+start_crewai = "test_crewai.main:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "ruff",
+    "mypy",
+    "pre-commit",
+]
+
+[project.urls]
+Homepage = "https://github.com/test/test_crewai"
+Repository = "https://github.com/test/test_crewai.git"
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.black]
+line-length = 100
+target-version = ['py38'] 
